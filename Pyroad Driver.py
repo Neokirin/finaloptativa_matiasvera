@@ -11,7 +11,7 @@ SCREENWIDTH=800
 SCREENHEIGHT=500
 size = (SCREENWIDTH, SCREENHEIGHT)
 screen = pygame.display.set_mode(size)
-pygame.display.set_caption("Pyroad Driver")
+pygame.display.set_caption("VolanteCuadrado")
 os.environ['SDL_VIDEO_CENTERED'] = '1'
                    
 ########## COLORES ########## 
@@ -407,16 +407,16 @@ def hud():
 
     global energy, userName, points
     
-    label0 = myfont.render("Name: " + str(userName), 1, WHITE, BLACK)
+    label0 = myfont.render("Nombre: " + str(userName), 1, WHITE, BLACK)
     screen.blit(label0, (610, 20))     
     
-    label1 = myfont.render("Energy: " + str(energy), 1, WHITE, BLACK)
+    label1 = myfont.render("Energia: " + str(energy), 1, WHITE, BLACK)
     screen.blit(label1, (610, 50))
 
-    label2 = myfont.render("Points: " + str(points), 1, WHITE, BLACK)
+    label2 = myfont.render("Puntos: " + str(points), 1, WHITE, BLACK)
     screen.blit(label2, (610, 80))
     
-##### launch cars and things
+##### Genera vehiculos y cosas
 
 carsOut = 0
 def launch():
@@ -443,7 +443,7 @@ def launch():
     elif laneRand == 8:
         lane = 550
         
-    if carsOut < 5:
+    if carsOut < 3:
 
         enemyCar1 = enemyCar(kind, lane)
         enemyCarGroup.add(enemyCar1)
@@ -508,11 +508,11 @@ def menu():
     
     global data, sortedData, menu_s, firts
 
-    playBtn = button(RED, 300, 270, 200, 25, "PLAY")
-    scoresBtn = button(RED, 300, 300, 200, 25, "SCORES")
-    instBtn = button(RED, 300, 330, 200, 25, "INSTRUCTIONS")
-    exitBtn = button(RED, 300, 360, 200, 25, "EXIT")
-    backBtn = button(RED, 550, 450, 200, 25, "Back")
+    playBtn = button(RED, 300, 270, 200, 25, "JUGAR")
+    scoresBtn = button(RED, 300, 300, 200, 25, "PUNTAJES")
+    instBtn = button(RED, 300, 330, 200, 25, "INSTRUCCIONES")
+    exitBtn = button(RED, 300, 360, 200, 25, "SALIR")
+    backBtn = button(RED, 550, 450, 200, 25, "REGRESAR")
 
     with open(directory + "\\save\\" + "scores.txt", "r") as f:
         data = json.load(f)
@@ -713,11 +713,11 @@ def instructions():
     
     backBtn = button(RED, 550, 450, 200, 25, "Back")
 
-    label0 = myfont.render("Instructions:", 1, WHITE, BLUE)
-    label1 = myfont.render("- Drive through the higway and dont crash", 1, WHITE, BLUE)
-    label2 = myfont.render("- Use A and D keys to move your car", 1, WHITE, BLUE)
-    label3 = myfont.render("- Use F key for Full Screen Mode", 1, WHITE, BLUE)
-    label4 = myfont.render("- Catch all the deamons you can to earn points", 1, WHITE, BLUE)
+    label0 = myfont.render("Instrucciones:", 1, WHITE, BLUE)
+    label1 = myfont.render("- Maneja y no choques", 1, WHITE, BLUE)
+    label2 = myfont.render("- Usa A Y D para mover al vehiculo", 1, WHITE, BLUE)
+    label3 = myfont.render("- Use F para la pantalla completa", 1, WHITE, BLUE)
+    label4 = myfont.render("- Agarra copas para sumar puntos", 1, WHITE, BLUE)
     
     while instructions_s:
         
@@ -769,7 +769,7 @@ def enterName():
     enterOkBtn = button(RED, 300, 350, 200, 25, "OK")
     enterBackBtn = button(RED, 550, 450, 200, 25, "Back")
 
-    labelEnterName = myfont.render("Enter user name:", 1, BLACK)
+    labelEnterName = myfont.render("Ingrese su nombre:", 1, BLACK)
 
     while enterName_s:
         
